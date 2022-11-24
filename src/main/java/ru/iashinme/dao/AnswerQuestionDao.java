@@ -23,6 +23,6 @@ public class AnswerQuestionDao {
 
     @Override
     public String toString() {
-        return "Question: " + question + " Answers: " + String.join(", ", answers);
+        return "Question: " + question + " Response options: " + (answers.isEmpty() ? "Free response" : String.join(", ", answers));
     }
 }
