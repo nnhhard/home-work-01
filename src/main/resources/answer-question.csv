@@ -1,5 +1,5 @@
-What's your name?
-How many years of java development?,Less than a year,From one to three years,More than three years
-How do you rate the first lesson?,4,5,5+
-What is dependency inversion principle? 1) The modules of the upper levels should not depend on the modules of the lower levels. Both types of modules should depend on abstractions. 2) Abstractions should not depend on details. Details should depend on abstractions., 1, 2, 1 and 2
-Describe in a nutshell what an IoC container is?
+Which of the above is the interface?, 1) List<E>; 2) ArrayList<E>;,1
+What is dependency inversion principle?, 1) The modules of the upper levels should not depend on the modules of the lower levels. Both types of modules should depend on abstractions.; 2) Abstractions should not depend on details. Details should depend on abstractions. 3) The modules of the upper levels should not depend on the modules of the lower levels. Both types of modules should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.,3
+What value can be assigned to a variable with type boolean?, 1) "Mikhail"; 2) true; 3) 52;,2
+Which of the above is the principle of OOP?, 1) Encapsulation; 2) Fault Tolerance; 3) Performance;,1
+What will the following code output: int a = 5; int b = a + 2; System.out.println(a > b ? a : b);?, 1) 5; 2) 7;,7
