@@ -4,16 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id='answerQuestionDao' class="ru.iashinme.dao.AnswerQuestionDaoImpl">
+    <bean id='inputOutputService' class="ru.iashinme.service.InputOutputServiceImpl"/>
+
+    <bean id='questionDao' class="ru.iashinme.dao.QuestionDaoImpl">
         <constructor-arg name="resourceName" value="answer-question.csv"/>
     </bean>
 
-    <bean id='inputOutputService' class="ru.iashinme.service.InputOutputServiceImpl"/>
-
-    <bean id='answerQuestionService' class="ru.iashinme.service.AnswerQuestionServiceImpl">
-        <constructor-arg name="answerQuestionDao" ref="answerQuestionDao"/>
+    <bean id='questionService' class="ru.iashinme.service.QuestionServiceImpl">
+        <constructor-arg name="questionDao" ref="questionDao"/>
         <constructor-arg name="inputOutputService" ref="inputOutputService"/>
     </bean>
-
 
 </beans>

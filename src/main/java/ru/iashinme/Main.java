@@ -1,14 +1,14 @@
 package ru.iashinme;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ru.iashinme.service.AnswerQuestionService;
+import ru.iashinme.service.QuestionService;
 
 public class Main {
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/spring-context.xml");
-        AnswerQuestionService answerQuestionService = context.getBean(AnswerQuestionService.class);
+        QuestionService questionService = context.getBean(QuestionService.class);
 
-        answerQuestionService.printAnswerQuestionList();
+        questionService.printQuestionList();
     }
 }
