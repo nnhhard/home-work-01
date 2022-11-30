@@ -19,8 +19,7 @@ public class QuestionServiceImpl implements QuestionService {
     public void printQuestionList() {
         List<Question> questionList = getQuestionList();
         for (Question row: questionList) {
-            var a = row.toString();
-            inputOutputService.printMessage(a);
+            inputOutputService.printMessage(row.toString());
         }
     }
 
