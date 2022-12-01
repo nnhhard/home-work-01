@@ -21,7 +21,7 @@ public class QuestionServiceTest {
 
     @Test
     @DisplayName("Should have correct print string")
-    public void shouldHaveCorrectFormatPrintString() throws IOException, CsvException {
+    public void shouldHaveCorrectFormatPrintString() {
 
         var questionDaoMock = Mockito.mock(QuestionDao.class);
         List<Question> questionList = new ArrayList<>();
