@@ -2,9 +2,9 @@ package ru.iashinme.domain;
 
 public class Answer {
     private String answer;
-    private Boolean isTrue;
+    private boolean isTrue;
 
-    public Answer(String answer, Boolean isTrue) {
+    public Answer(String answer, boolean isTrue) {
         this.answer = answer;
         this.isTrue = isTrue;
     }
@@ -13,8 +13,8 @@ public class Answer {
         this.answer = answer;
     }
 
-    public void setIsTrue(boolean aTrue) {
-        isTrue = aTrue;
+    public void setIsTrue(boolean isTrue) {
+        this.isTrue = isTrue;
     }
 
     public String getAnswer() {
@@ -23,10 +23,5 @@ public class Answer {
 
     public Boolean getIsTrue() {
         return isTrue;
-    }
-
-    @Override
-    public String toString() {
-        return answer + "(" + isTrue + ")";
     }
 }

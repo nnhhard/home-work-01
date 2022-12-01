@@ -5,6 +5,7 @@ import ru.iashinme.domain.Question;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class QuestionServiceImpl implements QuestionService {
     private final QuestionDao questionDao;
@@ -18,8 +19,13 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public void printQuestionList() {
         List<Question> questionList = getQuestionList();
-        for (Question row: questionList) {
-            inputOutputService.printMessage(row.toString());
+        for (Question question : questionList) {
+            String stringAnswers = question.getAnswers().stream()
+                    .map(i -> i.getAnswer() + "(" + i.getIsTrue() + ")" )
+                    .collect(Collectors.joining(", ", "Answer options: ", ""));
+            inputOutputService.printMessage(
+                    String.join(" ", "Question:", question.getQuestion(), stringAnswers)
+            );
         }
     }
 
@@ -28,7 +34,7 @@ public class QuestionServiceImpl implements QuestionService {
         try {
             questionList = questionDao.findAll();
         } catch (Exception e) {
-            System.out.println("Exception! " + e.getMessage());
+            inputOutputService.printMessage("Exception! " + e.getMessage());
         }
         return questionList;
     }

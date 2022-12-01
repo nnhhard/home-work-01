@@ -16,11 +16,11 @@ public class QuestionDaoImpl implements QuestionDao {
     }
 
     @Override
-    public List<Question> findAll() throws IOException, CsvException {
+    public List<Question> findAll(){
         return readFileResource();
     }
 
-    private List<Question> readFileResource() throws IOException, CsvException {
+    private List<Question> readFileResource() {
         List<Question> questionList = new ArrayList<>();
 
         if (resourceName != null) {
@@ -31,7 +31,7 @@ public class QuestionDaoImpl implements QuestionDao {
                 List<Answer> answers = new ArrayList<>();
                 for (String row: Arrays.copyOfRange(lineFile, 1, lineFile.length)) {
                     String[] answer = row.split(";");
-                    answers.add(new Answer(answer[0], answer.length > 1 ? Boolean.valueOf(answer[1]) : Boolean.FALSE));
+                    answers.add(new Answer(answer[0], answer.length > 1 ? Boolean.parseBoolean(answer[1]) : false));
                 }
 
                 questionList.add(new Question(
@@ -43,11 +43,15 @@ public class QuestionDaoImpl implements QuestionDao {
         return questionList;
     }
 
-    private List<String[]> inputStreamToCsv(InputStream inputStream) throws IOException, CsvException {
-        List<String[]> readerList;
+    private List<String[]> inputStreamToCsv(InputStream inputStream) {
+        List<String[]> readerList = null;
+
         try (CSVReader reader = new CSVReader(new InputStreamReader(inputStream))) {
             readerList = reader.readAll();
+        } catch(Exception e) {
+
         }
+
         return readerList == null ? Collections.emptyList() : readerList;
     }
 

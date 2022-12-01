@@ -2,7 +2,6 @@ package ru.iashinme.domain;
 
 import org.springframework.lang.NonNull;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Question {
     private String question;
@@ -27,13 +26,5 @@ public class Question {
 
     public List<Answer> getAnswers() {
         return answers;
-    }
-
-    @Override
-    public String toString() {
-        String stringAnswers = answers.stream()
-                .map(Answer::toString)
-                .collect(Collectors.joining(", ", "Answer options: ", ""));
-        return String.join(" ", "Question:", question, stringAnswers);
     }
 }
