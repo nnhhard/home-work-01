@@ -1,7 +1,6 @@
 package ru.iashinme.dao;
 
 import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvException;
 import ru.iashinme.domain.Answer;
 import ru.iashinme.domain.Question;
 
@@ -49,7 +48,7 @@ public class QuestionDaoImpl implements QuestionDao {
         try (CSVReader reader = new CSVReader(new InputStreamReader(inputStream))) {
             readerList = reader.readAll();
         } catch(Exception e) {
-
+            throw new RuntimeException("Exception reading CSV file");
         }
 
         return readerList == null ? Collections.emptyList() : readerList;

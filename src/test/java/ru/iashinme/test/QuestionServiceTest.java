@@ -1,6 +1,5 @@
 package ru.iashinme.test;
 
-import com.opencsv.exceptions.CsvException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,8 +10,6 @@ import ru.iashinme.domain.Answer;
 import ru.iashinme.domain.Question;
 import ru.iashinme.service.InputOutputService;
 import ru.iashinme.service.QuestionServiceImpl;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +23,8 @@ public class QuestionServiceTest {
         var questionDaoMock = Mockito.mock(QuestionDao.class);
         List<Question> questionList = new ArrayList<>();
         List<Answer> answerList = new ArrayList<>();
-        answerList.add(new Answer("List<E>", Boolean.TRUE));
-        answerList.add(new Answer("ArrayList<E>", Boolean.FALSE));
+        answerList.add(new Answer("List<E>", true));
+        answerList.add(new Answer("ArrayList<E>", false));
         questionList.add(new Question("Which of the above is the interface?", answerList));
         Mockito.when(questionDaoMock.findAll()).thenReturn(questionList);
 

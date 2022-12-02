@@ -3,7 +3,6 @@ package ru.iashinme.service;
 import ru.iashinme.dao.QuestionDao;
 import ru.iashinme.domain.Question;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,7 +20,7 @@ public class QuestionServiceImpl implements QuestionService {
         List<Question> questionList = getQuestionList();
         for (Question question : questionList) {
             String stringAnswers = question.getAnswers().stream()
-                    .map(i -> i.getAnswer() + "(" + i.getIsTrue() + ")" )
+                    .map(i -> i.getAnswer() + "(" + i.getIsTrue() + ")")
                     .collect(Collectors.joining(", ", "Answer options: ", ""));
             inputOutputService.printMessage(
                     String.join(" ", "Question:", question.getQuestion(), stringAnswers)
@@ -30,12 +29,6 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     private List<Question> getQuestionList() {
-        List<Question> questionList = Collections.emptyList();
-        try {
-            questionList = questionDao.findAll();
-        } catch (Exception e) {
-            inputOutputService.printMessage("Exception! " + e.getMessage());
-        }
-        return questionList;
+        return questionDao.findAll();
     }
 }
